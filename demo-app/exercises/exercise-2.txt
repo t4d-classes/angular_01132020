@@ -1,0 +1,20 @@
+Exercise 2
+
+GitHub URL: https://github.com/t4d-classes/angular_01132020
+
+1. Using a header element and an h1 element, add a header to Car Tool. Use a model property on the component class to set the content of the h1 element.
+
+2. In the Car Tool components, add a property named cars, and assign to it an array of car objects (define 2 car objects). Do not create an interface and do not create a class to define the cars. Instead, create the array of cars using object literals and create the array using an array literal. Do not create an array of arrays, and do not create an individual for each car property. Please read this paragraph twice.
+
+For each car, define and set the following properties:
+
+id: number
+make: string
+model: string
+year: number
+color: string
+price: number
+
+3. Using the array of car objects, display a table of cars using a table element and related elements. Please display column headers.
+
+4. Ensure it works.

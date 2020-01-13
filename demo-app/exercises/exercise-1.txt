@@ -1,0 +1,15 @@
+Exercise 1
+
+GitHub URL: https://github.com/t4d-classes/angular_01132020
+
+1. Create a new module named Car Tool.
+
+Example: ng generate module color-tool
+
+2. In the Car Tool module, create a new component named Car Home.
+
+Example: ng g component color-tool/components/color-home
+
+3. Display the Car Home component beneath the Color Home component in the App Component template.
+
+4. Ensure it works.
