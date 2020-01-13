@@ -1,0 +1,15 @@
+Exercise 5
+
+GitHub URL: https://github.com/t4d-classes/angular_01132020
+
+1. Solve world hunger.
+
+2. Solve world peece.
+
+3. Utilize Tool Header component in Car Home replacing the current header.
+
+4. Move the table of cars to a new component named Car Table. Utilize Car Table component in Car Home replacing the current table.
+
+5. Move the list of colors to a new component named Color List. Utilize the Color List component in Color Home replacing the current list.
+
+6. Ensure it works.

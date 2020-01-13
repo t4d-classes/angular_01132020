@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+
+import { Color } from '../../models/color';
 
 @Component({
   selector: 'app-color-home',
@@ -8,9 +10,19 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class ColorHomeComponent implements OnInit {
 
-  headerText = 'Color Tool';
+  private _headerText: string;
 
-  colors = [
+  @Input()
+  set headerText(value: string) {
+    console.log('setting header text: ', value);
+    this._headerText = value;
+  }
+
+  get headerText() {
+    return this._headerText;
+  }
+
+  colors: Color[] = [
     { id: 1, name: 'blue' },
     { id: 2, name: 'green' },
     { id: 3, name: 'yellow' },
@@ -28,6 +40,7 @@ export class ColorHomeComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    console.log('running color home component on init');
 
     this.colorForm = this.fb.group({
       name: '',
