@@ -1,0 +1,9 @@
+Exercise 3
+
+1. Create a color form in the HTML template. In the color form, one input element should created to capture the name of a new color. Be sure to wire the input and label, etc... Use the Reactive Form object model we created the demo to connect the HTML form to the component model.
+
+2. Add button to the form. When the button is clicked, take the collected form data and create a new color object. Using immutable programming techniques add the color to the array of colors to update the color list.
+
+3. Reset the form after the color is added.
+
+4. Ensure it works.

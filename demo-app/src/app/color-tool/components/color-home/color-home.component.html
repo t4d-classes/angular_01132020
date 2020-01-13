@@ -2,7 +2,14 @@
   <h1>{{headerText}}</h1>
 </header>
 <ul>
-  <li *ngFor="let color of colors">
+  <li *ngFor="let color of colors; trackBy:trackByIdName">
     {{color.name}}
   </li>
 </ul>
+<form [formGroup]="colorForm">
+  <div>
+    <label>Color:</label>
+    <input type="text" formControlName="name">
+  </div>
+  <button (click)="doAddColor()">Add</button>
+</form>

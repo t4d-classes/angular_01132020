@@ -1,0 +1,11 @@
+Exercise 4
+
+GitHub URL: https://github.com/t4d-classes/angular_01132020
+
+1. Add a car form to the car tool to collect new car information. Collect data for the following fields:
+
+make, model, year, color and price
+
+2. Immutably add the car to the array of cars and ensure it appears in the table.
+
+3. Ensure it works!
