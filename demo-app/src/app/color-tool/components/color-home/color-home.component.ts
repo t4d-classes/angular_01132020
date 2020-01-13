@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-color-home',
@@ -16,9 +17,22 @@ export class ColorHomeComponent implements OnInit {
     { id: 4, name: 'white' },
   ];
 
-  constructor() {}
+  colorForm: FormGroup;
+
+  // private fb: FormBuilder;
+
+  // constructor(fb: FormBuilder) {
+  //   this.fb = fb;
+  // }
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+
+    this.colorForm = this.fb.group({
+      name: '',
+    });
+
   }
 
 }
