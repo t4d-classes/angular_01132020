@@ -6,9 +6,10 @@ import { SharedModule } from '../shared/shared.module';
 
 import { ColorHomeComponent } from './components/color-home/color-home.component';
 import { ColorFormComponent } from './components/color-form/color-form.component';
+import { ColorListItemComponent } from './components/color-list-item/color-list-item.component';
 
 @NgModule({
-  declarations: [ ColorHomeComponent, ColorFormComponent ],
+  declarations: [ ColorHomeComponent, ColorFormComponent, ColorListItemComponent ],
   imports: [
     CommonModule, ReactiveFormsModule, SharedModule,
   ],

@@ -1,8 +1,7 @@
 <app-tool-header [headerText]="headerText"></app-tool-header>
 <ul>
-  <li *ngFor="let color of colors; trackBy:trackByIdName">
-    {{color.name}}
-  </li>
+  <li class="color-list-item" *ngFor="let color of colors; trackBy:trackByIdName" 
+    [color]="color"></li>
 </ul>
 <app-color-form buttonText="Add Color"
   (submitColor)="doAddColor($event)"></app-color-form>
