@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { Color } from '../../models/color';
 
@@ -32,41 +31,25 @@ export class ColorHomeComponent implements OnInit {
     { id: 4, name: 'white' },
   ];
 
-  colorForm: FormGroup;
-
   // private fb: FormBuilder;
 
   // constructor(fb: FormBuilder) {
   //   this.fb = fb;
   // }
 
-  constructor(private fb: FormBuilder) { }
+  constructor() { }
 
   ngOnInit() {
-    // console.log('running color home component on init');
-
-    this.colorForm = this.fb.group({
-      name: '',
-    });
   }
 
-  doAddColor() {
+  doAddColor(color: Color) {
 
     const newColor = {
-      name: this.colorForm.value.name,
-      id: Math.max(...this.colors.map(color => color.id), 0) + 1,
+      ...color,
+      id: Math.max(...this.colors.map(c => c.id), 0) + 1,
     };
 
     this.colors = this.colors.concat(newColor);
-
-    // this.colors = [
-    //   { id: 1, name: 'blue' },
-    //   { id: 2, name: 'green' },
-    //   { id: 3, name: 'yellow' },
-    //   { id: 4, name: 'white' },
-    //   newColor,
-    // ];
-
   }
 
   trackByIdName(color: { id: number, name: string }) {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { Car } from '../../models/car';
 @Component({
@@ -14,27 +13,19 @@ export class CarHomeComponent implements OnInit {
     { id: 2, make: 'Tesla', model: 'S', year: 2017, color: 'red', price: 120000 },
   ];
 
-  carForm: FormGroup;
+  constructor() { }
 
-  constructor(private fb: FormBuilder) { }
+  ngOnInit() {}
 
-  ngOnInit() {
-    this.carForm = this.fb.group({
-      make: '',
-      model: '',
-      year: 1900,
-      color: '',
-      price: 0,
+  doAddCar(car: Car) {
+    this.cars = this.cars.concat({
+      ...car,
+      id: Math.max(...this.cars.map(c => c.id), 0) + 1,
     });
   }
 
-  doAddCar() {
-
-    this.cars = this.cars.concat({
-      ...this.carForm.value,
-      id: Math.max(...this.cars.map(c => c.id), 0) + 1,
-    });
-
+  doDeleteCar(carId: number) {
+    this.cars = this.cars.filter(c => c.id !== carId);
   }
 
 }

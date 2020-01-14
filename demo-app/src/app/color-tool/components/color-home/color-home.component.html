@@ -4,10 +4,5 @@
     {{color.name}}
   </li>
 </ul>
-<form [formGroup]="colorForm">
-  <div>
-    <label>Color:</label>
-    <input type="text" formControlName="name">
-  </div>
-  <button (click)="doAddColor()">Add</button>
-</form>
+<app-color-form buttonText="Add Color"
+  (submitColor)="doAddColor($event)"></app-color-form>
