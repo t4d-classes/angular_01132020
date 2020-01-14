@@ -13,6 +13,8 @@ export class CarHomeComponent implements OnInit {
     { id: 2, make: 'Tesla', model: 'S', year: 2017, color: 'red', price: 120000 },
   ];
 
+  editCarId = -1;
+
   constructor() { }
 
   ngOnInit() {}
@@ -26,6 +28,10 @@ export class CarHomeComponent implements OnInit {
 
   doDeleteCar(carId: number) {
     this.cars = this.cars.filter(c => c.id !== carId);
+  }
+
+  doEditCar(carId: number) {
+    this.editCarId = carId;
   }
 
 }

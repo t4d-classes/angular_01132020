@@ -1,0 +1,11 @@
+Exercise 8
+
+GitHub URL: https://github.com/t4d-classes/angular_01132020
+
+1. Create a new component named Car Edit Row. The car edit row will display input fields for the make, model, year, color, and price columns. The actions column (last column) will have two buttons: Save and Cancel. When the component is displayed pre-populate the input fields with the car data. For this exercise, do not implement Save and Cancel functionality, just display the buttons.
+
+2. In the Car View Row, in the Actions column, add a new button with a label of Edit. When the button is clicked, the Car View Row for that one car, changes to Car Edit Row. Only 1 row is editable at a time. Design your solution so it only works with 1 editable row.
+
+Hint: *ngIf, ng-container
+
+3. Ensure it works.
