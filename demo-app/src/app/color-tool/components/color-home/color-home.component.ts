@@ -10,17 +10,20 @@ import { Color } from '../../models/color';
 })
 export class ColorHomeComponent implements OnInit {
 
-  private _headerText: string;
+  // private _headerText: string;
+
+  // @Input()
+  // set headerText(value: string) {
+  //   console.log('setting header text: ', value);
+  //   this._headerText = value;
+  // }
+
+  // get headerText() {
+  //   return this._headerText;
+  // }
 
   @Input()
-  set headerText(value: string) {
-    console.log('setting header text: ', value);
-    this._headerText = value;
-  }
-
-  get headerText() {
-    return this._headerText;
-  }
+  headerText = 'Color Tool';
 
   colors: Color[] = [
     { id: 1, name: 'blue' },
@@ -40,7 +43,7 @@ export class ColorHomeComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    console.log('running color home component on init');
+    // console.log('running color home component on init');
 
     this.colorForm = this.fb.group({
       name: '',
@@ -54,15 +57,15 @@ export class ColorHomeComponent implements OnInit {
       id: Math.max(...this.colors.map(color => color.id), 0) + 1,
     };
 
-    // this.colors = this.colors.concat(newColor);
+    this.colors = this.colors.concat(newColor);
 
-    this.colors = [
-      { id: 1, name: 'blue' },
-      { id: 2, name: 'green' },
-      { id: 3, name: 'yellow' },
-      { id: 4, name: 'white' },
-      newColor,
-    ];
+    // this.colors = [
+    //   { id: 1, name: 'blue' },
+    //   { id: 2, name: 'green' },
+    //   { id: 3, name: 'yellow' },
+    //   { id: 4, name: 'white' },
+    //   newColor,
+    // ];
 
   }
 
