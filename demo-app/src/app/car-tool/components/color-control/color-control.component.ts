@@ -7,7 +7,7 @@ import { CarColor } from '../../models/car';
   templateUrl: './color-control.component.html',
   styleUrls: ['./color-control.component.css'],
   providers: [
-    { 
+    {
       provide: NG_VALUE_ACCESSOR, multi: true,
       useExisting: forwardRef(() => ColorControlComponent)
     },

@@ -7,14 +7,15 @@ import { SharedModule } from '../shared/shared.module';
 import { MessageFormComponent } from './components/message-form/message-form.component';
 import { FormHomeComponent } from './components/form-home/form-home.component';
 import { FullNameControlComponent } from './components/full-name-control/full-name-control.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 
 
 @NgModule({
-  declarations: [ MessageFormComponent, FormHomeComponent, FullNameControlComponent ],
+  declarations: [ MessageFormComponent, FormHomeComponent, FullNameControlComponent, ContactFormComponent ],
   imports: [
     CommonModule, ReactiveFormsModule, SharedModule,
   ],
-  exports: [ MessageFormComponent, FormHomeComponent ]
+  exports: [ MessageFormComponent, FormHomeComponent, ContactFormComponent ]
 })
 export class FormDemoModule { }

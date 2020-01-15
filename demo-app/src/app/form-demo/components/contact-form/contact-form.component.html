@@ -1,0 +1,15 @@
+<form [formGroup]="contactForm">
+
+  <div>
+    <label>First Name</label>
+    <input type="text" formControlName="firstName">
+    <p>{{contactForm.get('firstName').errors | json}}</p>
+    <!-- <span *ngIf="contactForm.get('firstName').invalid">
+      First name is required.</span> -->
+    <span *ngIf="firstNameErrors?.required">
+      First name is required.</span>
+    <span *ngIf="firstNameErrors?.minlength">
+      First name needs minimum length of {{firstNameErrors?.minlength?.requiredLength}}.</span>
+    </div>
+
+</form>

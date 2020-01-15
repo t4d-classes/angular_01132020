@@ -1,0 +1,7 @@
+/* input + span {
+  display: none;
+}
+
+input.ng-invalid + span {
+  display: initial;
+} */
