@@ -2,9 +2,24 @@ import {
   Component, OnInit, Input,
   Output, EventEmitter,
 } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 import { Car } from '../../models/car';
+
+const carMakeValidator = (c: AbstractControl) => {
+
+  const sValue = String(c.value);
+
+  if (sValue.length > 0) {
+    if (!['Ford', 'Tesla', 'Toyota'].includes(sValue)) {
+      return {
+        carMake: true,
+      };
+    }
+  }
+
+  return null;
+};
 
 @Component({
   selector: 'app-car-form',
@@ -25,11 +40,15 @@ export class CarFormComponent implements OnInit {
 
   ngOnInit() {
     this.carForm = this.fb.group({
-      make: '',
+      make: [ '', { validators: [ carMakeValidator ] } ],
       model: '',
-      year: 1900,
+      year: [ 0, { validators: [
+        Validators.required,
+        Validators.min(1885),
+        Validators.max(new Date().getFullYear()),
+      ] } ],
       color: '',
-      price: 0,
+      price: [ 0, { validators: [ Validators.required, Validators.min(0) ] } ],
     });
   }
 
@@ -37,6 +56,17 @@ export class CarFormComponent implements OnInit {
     this.submitCar.emit({
       ...this.carForm.value,
     });
+  }
+
+  get carFormErrors() {
+    return (Object.keys(this.carForm.controls) as any)
+      .flatMap(controlKey => {
+        const control = this.carForm.controls[controlKey];
+        return control.errors == null
+          ? []
+          : Object.keys(control.errors)
+            .map(errorKey => controlKey + ': ' + errorKey);
+      });
   }
 
 

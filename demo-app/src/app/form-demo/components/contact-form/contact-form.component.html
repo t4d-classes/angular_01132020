@@ -10,6 +10,23 @@
       First name is required.</span>
     <span *ngIf="firstNameErrors?.minlength">
       First name needs minimum length of {{firstNameErrors?.minlength?.requiredLength}}.</span>
-    </div>
+  </div>
+
+  <p>Please enter a phone number or email address.</p>
+
+  <p>{{contactForm.errors | json}}</p>
+
+  <div>
+    <label>Phone</label>
+    <input type="text" formControlName="phone">
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input type="text" formControlName="email">
+  </div>
+
+  <button  (click)="doSend()">Send</button>
+  <!-- [disabled]="contactForm.invalid" -->
 
 </form>
