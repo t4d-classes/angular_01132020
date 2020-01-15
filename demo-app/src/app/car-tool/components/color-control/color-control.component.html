@@ -1,0 +1,17 @@
+<fieldset [formGroup]="colorForm">
+
+  <div>
+    <label for="ext-input">Ext:</label>
+    <input type="text" id="ext-input"
+      formControlName="ext"
+      (input)="doInput()" (blur)="doBlur()">
+  </div>
+
+  <div>
+    <label for="int-input">Int:</label>
+    <input type="text" id="int-input"
+    formControlName="int"
+    (input)="doInput()" (blur)="doBlur()">
+  </div>
+
+</fieldset>

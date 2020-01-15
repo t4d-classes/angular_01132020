@@ -2,7 +2,7 @@
 <td>{{car.make | myUppercase}}</td>
 <td>{{car.model | myAppend:'!!!':123:true:car.id}}</td>
 <td>{{car.year}}</td>
-<td>{{car.color}}</td>
+<td>{{car.color | carColor}}</td>
 <td>{{car.price | currency}}</td>
 <td>
   <button (click)="doEditCar(car.id)">Edit</button>

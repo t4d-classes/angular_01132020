@@ -9,8 +9,8 @@ import { Car } from '../../models/car';
 export class CarHomeComponent implements OnInit {
 
   cars: Car[] = [
-    { id: 1, make: 'Ford', model: 'Fusion Hybrid', year: 2018, color: 'blue', price: 45000 },
-    { id: 2, make: 'Tesla', model: 'S', year: 2017, color: 'red', price: 120000 },
+    { id: 1, make: 'Ford', model: 'Fusion Hybrid', year: 2018, color: { ext: 'blue', int: 'beige' }, price: 45000 },
+    { id: 2, make: 'Tesla', model: 'S', year: 2017, color: { ext: 'red', int: 'black' }, price: 120000 },
   ];
 
   editCarId = -1;

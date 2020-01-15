@@ -1,8 +1,13 @@
+export interface CarColor {
+  ext: string;
+  int: string;
+}
+
 export interface Car {
   id?: number;
   make: string;
   model: string;
   year: number;
-  color: string;
+  color: CarColor;
   price: number;
 }
