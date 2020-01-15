@@ -1,0 +1,11 @@
+Exercise 11
+
+1. In the Car Form component, place a custom control to collect the color for the car.
+
+2. The output the custom control should look like this:
+
+Ext: blue, Int: red
+
+Of course, the color names should be replaced with the values typed in.
+
+The control will look like this:

@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule, ColorToolModule, CarToolModule, FormDemoModule
+    BrowserModule, ColorToolModule, CarToolModule, FormDemoModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
