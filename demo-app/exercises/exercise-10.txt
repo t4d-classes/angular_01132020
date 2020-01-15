@@ -1,0 +1,24 @@
+Exercise 10
+
+1. Create a new module named Form Demo.
+
+2. In the Form Demo module, create the component(s) and pipe(s) necessary to complete the following task:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Comment out the car tool and color tool in App Component, and display the component created in step 2 to view and use the functionality created.
+
+4. Ensure it works.
+

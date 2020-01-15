@@ -1,0 +1,7 @@
+<form [formGroup]="messageForm">
+
+  <textarea formControlName="message"></textarea><br>
+  Length <input type="number" formControlName="textLength">
+
+  Output: <p>{{messageForm.value.message | ellipsis:messageForm.value.textLength}}</p>
+</form>
