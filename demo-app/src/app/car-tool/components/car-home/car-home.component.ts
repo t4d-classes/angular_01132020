@@ -24,14 +24,28 @@ export class CarHomeComponent implements OnInit {
       ...car,
       id: Math.max(...this.cars.map(c => c.id), 0) + 1,
     });
+    this.editCarId = -1;
+  }
+
+  doReplaceCar(car: Car) {
+    const carIndex = this.cars.findIndex(c => c.id === car.id);
+    const cars = this.cars.concat();
+    cars[carIndex] = car;
+    this.cars = cars;
+    this.editCarId = -1;
   }
 
   doDeleteCar(carId: number) {
     this.cars = this.cars.filter(c => c.id !== carId);
+    this.editCarId = -1;
   }
 
   doEditCar(carId: number) {
     this.editCarId = carId;
+  }
+
+  doCancelCar() {
+    this.editCarId = -1;
   }
 
 }
