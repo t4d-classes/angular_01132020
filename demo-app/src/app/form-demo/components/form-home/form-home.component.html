@@ -1,0 +1,30 @@
+<form [formGroup]="contactForm">
+
+  <div>
+    <label for="fullname-input">Full Name:</label>
+    <input type="text" formControlName="fullName">
+  </div>
+
+  <div>
+    <label for="message-input">Message:</label>
+    <input type="text" formControlName="message">
+  </div>
+
+  <fieldset formGroupName="address">
+
+    <div>
+      <label for="city-input">City:</label>
+      <input type="text" formControlName="city">
+    </div>
+
+    <div>
+      <label for="state-input">State:</label>
+      <input type="text" formControlName="state">
+    </div>
+  
+  </fieldset>
+
+</form>
+
+Values:<br>
+{{contactForm.value | json}}<br>
