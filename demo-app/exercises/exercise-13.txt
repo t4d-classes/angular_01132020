@@ -1,0 +1,8 @@
+Exercise 13
+
+
+1. Create a new service to manage the array of cars. Move the car array manipulation functions in Car Home to the new service.
+
+2. When retrieving the cars, please return a copy of the array.
+
+3. Ensure it works.
