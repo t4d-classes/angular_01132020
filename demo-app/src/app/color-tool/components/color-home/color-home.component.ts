@@ -1,13 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 
-import { ColorsService } from '../../services/colors.service';
+import { ColorsServiceToken, IColorsService } from '../../services/colors.service';
 
 import { Color } from '../../models/color';
 
 @Component({
   selector: 'app-color-home',
   templateUrl: './color-home.component.html',
-  styleUrls: ['./color-home.component.css']
+  styleUrls: ['./color-home.component.css'],
 })
 export class ColorHomeComponent implements OnInit {
 
@@ -16,7 +16,7 @@ export class ColorHomeComponent implements OnInit {
 
   colors: Color[];
 
-  constructor(private colorsSvc: ColorsService) { }
+  constructor(@Inject(ColorsServiceToken) private colorsSvc: IColorsService) { }
 
   ngOnInit() {
     this.colors = this.colorsSvc.allColors();

@@ -7,7 +7,7 @@ import { Color } from '../../models/color';
 @Component({
   selector: 'app-color-form',
   templateUrl: './color-form.component.html',
-  styleUrls: ['./color-form.component.css']
+  styleUrls: ['./color-form.component.css'],
 })
 export class ColorFormComponent implements OnInit {
 
