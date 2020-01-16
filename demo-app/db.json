@@ -1,7 +1,6 @@
 {
   "cars": [
     {
-      "id": 1,
       "make": "Ford",
       "model": "Fusion Hybrid",
       "year": 2018,
@@ -9,7 +8,8 @@
         "ext": "blue",
         "int": "beige"
       },
-      "price": 45000
+      "price": 45001,
+      "id": 1
     },
     {
       "id": 2,

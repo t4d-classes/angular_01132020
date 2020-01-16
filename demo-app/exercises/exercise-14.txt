@@ -1,0 +1,7 @@
+Exercise 14
+
+1. Create a new service named Rest API URL. The service will load the url for the Cars REST API Endpoint from the "environment" file. You will need to add a URL entry to the environment file.
+
+2. Upgrade the Cars Service to the Http Client and the Rest API URL service to construct and send REST API calls to the JSON server. Implement the append, replace and remove actions.
+
+3. Ensure it works.
