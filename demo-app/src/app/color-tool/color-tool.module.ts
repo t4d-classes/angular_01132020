@@ -1,6 +1,7 @@
 import { NgModule, InjectionToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -17,7 +18,7 @@ const MODE_TOKEN = new InjectionToken<string>('Mode Service Token');
 @NgModule({
   declarations: [ ColorHomeComponent, ColorFormComponent, ColorListItemComponent ],
   imports: [
-    CommonModule, ReactiveFormsModule, SharedModule,
+    CommonModule, ReactiveFormsModule, HttpClientModule, SharedModule,
   ],
   exports: [ ColorHomeComponent ],
   providers: [ { provide: ColorsServiceToken, useClass: ColorsService } ],

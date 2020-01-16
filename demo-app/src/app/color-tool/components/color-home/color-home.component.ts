@@ -19,13 +19,16 @@ export class ColorHomeComponent implements OnInit {
   constructor(@Inject(ColorsServiceToken) private colorsSvc: IColorsService) { }
 
   ngOnInit() {
-    this.colors = this.colorsSvc.allColors();
+    this.colorsSvc
+      .allColors()
+      .then(colors => this.colors = colors);
   }
 
   doAddColor(color: Color) {
-    this.colors = this.colorsSvc
+    this.colorsSvc
       .appendColor(color)
-      .allColors();
+      .then(() => this.colorsSvc.allColors())
+      .then(colors => this.colors = colors);
   }
 
   trackByIdName(color: { id: number, name: string }) {
