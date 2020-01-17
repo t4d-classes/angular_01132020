@@ -1,0 +1,18 @@
+Exercise 15
+
+1. Upgrade the append, replace and remove car operations to use a pipe instead of the nesting pattern.
+
+2. If a REST API operation fails, handle the error, and display the error above the table.
+
+Start your application in two terminal windows:
+
+First Terminal: npm run web
+Second Terminal: npm run REST
+
+Loading the application in a web browser.
+
+In the second terminal window, terminate the REST API with Ctrl-C
+
+Then, try to add a car. It will fail, and a message should be displayed above the table.
+
+3. Ensure it works.

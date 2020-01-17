@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
 
 import { Car } from '../../models/car';
 import { CarsService } from '../../services/cars.service';
@@ -26,14 +27,18 @@ export class CarHomeComponent implements OnInit {
   doAddCar(car: Car) {
     this.carsSvc
       .appendCar(car)
-      .subscribe(() => {
-        this.carsSvc.allCars()
-          .subscribe(cars => {
-            this.cars = cars;
-            this.editCarId = -1;
-          });
+      .pipe(
+        switchMap(() => this.carsSvc.allCars())
+      )
+      .subscribe({
+        next: cars => {
+          this.cars = cars;
+          this.editCarId = -1;
+        },
+        error: err => {
+          console.log(err);
+        },
       });
-      ;
   }
 
   doReplaceCar(car: Car) {

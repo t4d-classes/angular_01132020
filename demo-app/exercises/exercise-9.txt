@@ -6,4 +6,4 @@ GitHub URL: https://github.com/t4d-classes/angular_01132020
 
 2. If a car row is being edited and either 'Add Car' or 'Delete Car' are clicked, discard the edit row changes and change the edit row back to view row. Do complete the 'Add Car' or 'Delete Car' operation.
 
-3. Ensure it works.
+3. Ensure it works. 
