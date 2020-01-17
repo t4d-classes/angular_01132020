@@ -17,7 +17,7 @@ export class CarHomeComponent implements OnInit {
 
   ngOnInit() {
     this.carsSvc.allCars()
-      .then(cars => {
+      .subscribe(cars => {
         this.cars = cars;
         this.editCarId = -1;
       });
@@ -26,30 +26,37 @@ export class CarHomeComponent implements OnInit {
   doAddCar(car: Car) {
     this.carsSvc
       .appendCar(car)
-      .then(() => this.carsSvc.allCars())
-      .then(cars => {
-        this.cars = cars;
-        this.editCarId = -1;
+      .subscribe(() => {
+        this.carsSvc.allCars()
+          .subscribe(cars => {
+            this.cars = cars;
+            this.editCarId = -1;
+          });
       });
+      ;
   }
 
   doReplaceCar(car: Car) {
     this.carsSvc
       .replaceCar(car)
-      .then(() => this.carsSvc.allCars())
-      .then(cars => {
-        this.cars = cars;
-        this.editCarId = -1;
+      .subscribe(() => {
+        this.carsSvc.allCars()
+          .subscribe(cars => {
+            this.cars = cars;
+            this.editCarId = -1;
+          });
       });
   }
 
   doDeleteCar(carId: number) {
     this.carsSvc
       .deleteCar(carId)
-      .then(() => this.carsSvc.allCars())
-      .then(cars => {
-        this.cars = cars;
-        this.editCarId = -1;
+      .subscribe(() => {
+        this.carsSvc.allCars()
+          .subscribe(cars => {
+            this.cars = cars;
+            this.editCarId = -1;
+          });
       });
   }
 

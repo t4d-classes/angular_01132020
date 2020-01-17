@@ -16,26 +16,22 @@ export class CarsService {
 
   allCars() {
     return this.httpClient
-      .get<Car[]>(this.restApiUrl.carsUrl)
-      .toPromise();
+      .get<Car[]>(this.restApiUrl.carsUrl);
   }
 
   appendCar(car: Car) {
     return this.httpClient
-      .post<Car>(this.restApiUrl.carsUrl, car)
-      .toPromise();
+      .post<Car>(this.restApiUrl.carsUrl, car);
   }
 
   replaceCar(car: Car) {
     return this.httpClient
-      .put<Car>(this.restApiUrl.carsUrl + '/' + car.id, car)
-      .toPromise();
+      .put<Car>(this.restApiUrl.carsUrl + '/' + car.id, car);
   }
 
   deleteCar(carId: number) {
     return this.httpClient
-      .delete<void>(this.restApiUrl.carsUrl + '/' + carId)
-      .toPromise();
+      .delete<void>(this.restApiUrl.carsUrl + '/' + carId);
   }
 
 }
