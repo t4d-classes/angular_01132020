@@ -1,7 +1,12 @@
 <app-tool-header [headerText]="headerText"></app-tool-header>
-<ul>
-  <li class="color-list-item" *ngFor="let color of colors; trackBy:trackByIdName" 
-    [color]="color"></li>
+
+<button (click)="showForm()">Show Form</button>
+<div [formGroup]="colorListForm">
+<ul formArrayName="colorInputs">
+  <li *ngFor="let color of colors; let i = index; trackBy:trackByIdName" [formGroupName]="i">
+    <input type="text" formControlName="name">
+  </li>
 </ul>
+</div>
 <app-color-form buttonText="Add Color"
   (submitColor)="doAddColor($event)"></app-color-form>

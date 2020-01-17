@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
+import { fromEvent } from 'rxjs';
+import {  debounceTime } from 'rxjs/operators';
 
 import { Car } from '../../models/car';
 import { CarsService } from '../../services/cars.service';
@@ -22,6 +24,10 @@ export class CarHomeComponent implements OnInit {
         this.cars = cars;
         this.editCarId = -1;
       });
+
+    fromEvent(window, 'scroll').pipe(debounceTime(1000)).subscribe(e => {
+      console.log(e);
+    });
   }
 
   doAddCar(car: Car) {

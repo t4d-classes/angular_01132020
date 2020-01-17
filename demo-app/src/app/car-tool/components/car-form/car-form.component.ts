@@ -5,6 +5,7 @@ import {
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 import { Car } from '../../models/car';
+import { HttpClient } from '@angular/common/http';
 
 const carMakeValidator = (c: AbstractControl) => {
 
@@ -19,6 +20,32 @@ const carMakeValidator = (c: AbstractControl) => {
   }
 
   return null;
+};
+
+const carColorAsyncValidator = (httpClient: HttpClient) => (c: AbstractControl) => {
+
+  console.log('called async validator');
+
+  if (c.value.length < 3) {
+    return Promise.resolve(null);
+  }
+
+  return new Promise<any>(function(resolve) {
+
+    return httpClient
+      .get<object[]>('http://localhost:4250/colors?name=' + c.value)
+      .toPromise()
+      .then((colors) => {
+        if (colors.length === 1) {
+          resolve(null);
+        } else {
+          resolve({
+            carColor: true,
+          });
+        }
+      });
+  });
+
 };
 
 @Component({
@@ -36,12 +63,15 @@ export class CarFormComponent implements OnInit {
 
   carForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private httpClient: HttpClient,
+  ) { }
 
   ngOnInit() {
     this.carForm = this.fb.group({
       make: [ '', { validators: [ carMakeValidator ] } ],
-      model: '',
+      model: [ '', { asyncValidators: [ carColorAsyncValidator(this.httpClient) ] } ],
       year: [ 0, { validators: [
         Validators.required,
         Validators.min(1885),
@@ -50,6 +80,7 @@ export class CarFormComponent implements OnInit {
       color: '',
       price: [ 0, { validators: [ Validators.required, Validators.min(0) ] } ],
     });
+
   }
 
   doSubmitCar() {
