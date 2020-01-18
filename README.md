@@ -40,3 +40,4 @@ Breaks:
 
 - [Accelebrate](https://www.accelebrate.com/)
 - [WintellectNOW](https://www.wintellectnow.com/Home/Instructor?instructorId=EricGreene) - Special Offer Code: T4DCLASS
+- [Udemy Class on React](https://www.udemy.com/course/getting-started-with-react/?couponCode=JAN2020) - Coupon Code (expires 01/22/2020): JAN2020
