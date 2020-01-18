@@ -1,0 +1,5 @@
+<input type="text" [formControl]="colorSearchTextInput" (input)="doColorSearch()">
+
+<ul>
+  <li *ngFor="let color of colors$ | async">{{color}}</li>
+</ul>

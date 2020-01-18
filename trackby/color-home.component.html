@@ -1,0 +1,21 @@
+<tool-header headerText="headerText"></tool-header>
+<input type="text" [formControl]="message">
+<p>
+  {{message.value}}
+</p>
+<ul>
+  <li *ngFor="let color of colors; let i = index; index as i2, first as first, last as last, even as even, odd as odd; trackBy: trackColors">
+    {{i}} {{i2}} {{first}} {{last}} {{even}} {{odd}} {{color.name | myUppercase}}
+  </li>
+  <!-- <ng-template ngFor [ngForOf]="colors" let-color>
+    <li>{{color}}</li>
+    <li>{{color | uppercase}}</li>
+  </ng-template>
+
+  <ng-container *ngFor="let color of colors">
+    <li>{{color}}</li>
+    <li>{{color | uppercase}}</li>
+  </ng-container> -->
+</ul>
+<div class="color-form" buttonText="Add Color" (submitColor)="addColor($event)"></div>
+
