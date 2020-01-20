@@ -12,6 +12,8 @@ import { CarsService } from '../../services/cars.service';
 })
 export class CarHomeComponent implements OnInit {
 
+  errorMessage = '';
+
   cars: Car[];
 
   editCarId = -1;
@@ -42,7 +44,7 @@ export class CarHomeComponent implements OnInit {
           this.editCarId = -1;
         },
         error: err => {
-          console.log(err);
+          this.errorMessage = err.message;
         },
       });
   }
@@ -50,24 +52,34 @@ export class CarHomeComponent implements OnInit {
   doReplaceCar(car: Car) {
     this.carsSvc
       .replaceCar(car)
-      .subscribe(() => {
-        this.carsSvc.allCars()
-          .subscribe(cars => {
-            this.cars = cars;
-            this.editCarId = -1;
-          });
+      .pipe(
+        switchMap(() => this.carsSvc.allCars())
+      )
+      .subscribe({
+        next: cars => {
+          this.cars = cars;
+          this.editCarId = -1;
+        },
+        error: err => {
+          this.errorMessage = err.message;
+        },
       });
   }
 
   doDeleteCar(carId: number) {
     this.carsSvc
       .deleteCar(carId)
-      .subscribe(() => {
-        this.carsSvc.allCars()
-          .subscribe(cars => {
-            this.cars = cars;
-            this.editCarId = -1;
-          });
+      .pipe(
+        switchMap(() => this.carsSvc.allCars())
+      )
+      .subscribe({
+        next: cars => {
+          this.cars = cars;
+          this.editCarId = -1;
+        },
+        error: err => {
+          this.errorMessage = err.message;
+        },
       });
   }
 

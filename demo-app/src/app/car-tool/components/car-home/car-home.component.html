@@ -1,4 +1,7 @@
 <app-tool-header headerText="Car Tool"></app-tool-header>
+
+<p *ngIf="errorMessage">{{errorMessage}}</p>
+
 <app-car-table [cars]="cars" [editCarId]="editCarId"
   (editCar)="doEditCar($event)" (deleteCar)="doDeleteCar($event)"
   (saveCar)="doReplaceCar($event)" (cancelCar)="doCancelCar($event)"></app-car-table>

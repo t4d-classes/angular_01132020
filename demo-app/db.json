@@ -21,6 +21,17 @@
         "int": "black"
       },
       "price": 120000
+    },
+    {
+      "make": "Ford",
+      "model": "a",
+      "year": 1890,
+      "color": {
+        "ext": "a",
+        "int": "a"
+      },
+      "price": 12,
+      "id": 3
     }
   ],
   "colors": [
